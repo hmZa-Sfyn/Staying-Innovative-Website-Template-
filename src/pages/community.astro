@@ -1,0 +1,58 @@
+---
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+
+const communities = [
+  {
+    title: "Discord",
+    description: "Join our Discord community to chat with other developers",
+    link: "#discord",
+    icon: "💬"
+  },
+  {
+    title: "GitHub",
+    description: "Contribute to RubyScript's development",
+    link: "https://github.com/rubyscript",
+    icon: "🔧"
+  },
+  {
+    title: "Forum",
+    description: "Discuss RubyScript topics and get help",
+    link: "#forum",
+    icon: "📢"
+  },
+  {
+    title: "Blog",
+    description: "Read about the latest updates and features",
+    link: "/blog",
+    icon: "📝"
+  }
+];
+---
+
+<Layout title="Community - RubyScript">
+  <main class="pt-24">
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-light text-neutral mb-16 text-center">Join Our Community</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {communities.map(community => (
+            <a href={community.link} 
+               class="p-8 rounded-xl bg-white hover:bg-primary-lighter transition-colors group text-center"
+               target={community.link.startsWith('http') ? '_blank' : undefined}
+               rel={community.link.startsWith('http') ? 'noopener noreferrer' : undefined}>
+              <div class="text-4xl mb-4">{community.icon}</div>
+              <h3 class="text-xl font-light mb-3 group-hover:text-primary">
+                {community.title}
+              </h3>
+              <p class="text-neutral-light font-light">
+                {community.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+</Layout>

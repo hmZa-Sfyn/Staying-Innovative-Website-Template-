@@ -1,0 +1,21 @@
+---
+import NavDropdown from './navigation/NavDropdown.astro';
+import NavAuth from './navigation/NavAuth.astro';
+import { navigationItems } from '../data/navigation';
+---
+
+<nav class="bg-white shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <a href="/" class="text-xl font-bold">StayingInnovative</a>
+      
+      <div class="hidden md:flex space-x-8">
+        {navigationItems.map(category => (
+          <NavDropdown title={category.title} items={category.items} />
+        ))}
+      </div>
+      
+      <NavAuth />
+    </div>
+  </div>
+</nav>

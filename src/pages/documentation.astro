@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+const docs = [
+  {
+    title: "Getting Started",
+    description: "Learn how to install and set up RubyScript in your project",
+    link: "#getting-started"
+  },
+  {
+    title: "Type System",
+    description: "Understanding RubyScript's type system and annotations",
+    link: "#type-system"
+  },
+  {
+    title: "Configuration",
+    description: "Configure RubyScript for your project needs",
+    link: "#configuration"
+  },
+  {
+    title: "Best Practices",
+    description: "Learn the recommended patterns and practices",
+    link: "#best-practices"
+  }
+];
+---
+
+<Layout title="Documentation - RubyScript">
+  <main class="pt-24">
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-light text-neutral mb-16 text-center">Documentation</h1>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {docs.map(doc => (
+            <a href={doc.link} class="p-6 rounded-lg hover:bg-primary-lighter transition-colors group">
+              <h3 class="text-xl font-light mb-2 group-hover:text-primary">
+                {doc.title}
+              </h3>
+              <p class="text-neutral-light font-light">
+                {doc.description}
+              </p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

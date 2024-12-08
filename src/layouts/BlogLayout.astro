@@ -1,0 +1,19 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <article class="container mx-auto px-4 py-12 prose prose-lg">
+    <h1>{frontmatter.title}</h1>
+    <div class="flex items-center space-x-4 text-gray-600 mb-8">
+      <time datetime={frontmatter.date}>
+        {new Date(frontmatter.date).toLocaleDateString()}
+      </time>
+      <span>·</span>
+      <span>{frontmatter.author}</span>
+    </div>
+    <slot />
+  </article>
+</Layout>

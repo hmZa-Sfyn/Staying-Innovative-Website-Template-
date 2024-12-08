@@ -1,0 +1,42 @@
+---
+import CodeExample from './CodeExample.astro';
+
+const examples = [
+  {
+    title: "Type-safe Classes",
+    code: `class Person
+  def initialize(name: String, age: Integer)
+    @name = name
+    @age = age
+  end
+
+  def greet: String
+    "Hello, I'm #{@name} and I'm #{@age} years old!"
+  end
+end`
+  },
+  {
+    title: "Pattern Matching",
+    code: `def process_data(data)
+  case data
+  in { type: "user", name: String => name }
+    puts "Processing user: #{name}"
+  in { type: "order", id: Integer => id }
+    puts "Processing order: #{id}"
+  else
+    puts "Unknown data type"
+  end
+end`
+  }
+];
+---
+<section id="examples" class="py-24 bg-gradient-to-br from-secondary via-secondary-light to-primary-dark text-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">Code Examples</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {examples.map(example => (
+        <CodeExample title={example.title} code={example.code} />
+      ))}
+    </div>
+  </div>
+</section>

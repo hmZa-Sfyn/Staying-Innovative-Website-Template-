@@ -1,0 +1,51 @@
+---
+interface Props {
+  currentExample: string;
+}
+
+const { currentExample } = Astro.props;
+
+const categories = {
+  'Basic Examples': [
+    { id: 'basic-types', title: 'Basic Types' },
+    { id: 'classes', title: 'Classes' },
+    { id: 'modules', title: 'Modules' },
+  ],
+  'Advanced Examples': [
+    { id: 'generics', title: 'Generics' },
+    { id: 'pattern-matching', title: 'Pattern Matching' },
+    { id: 'type-inference', title: 'Type Inference' },
+  ],
+  'Real-World Examples': [
+    { id: 'web-api', title: 'Web API' },
+    { id: 'data-processing', title: 'Data Processing' },
+    { id: 'cli-app', title: 'CLI Application' },
+  ],
+};
+---
+
+<aside class="hidden lg:block w-64 border-r border-gray-200 px-4 py-8 overflow-y-auto">
+  <nav>
+    {Object.entries(categories).map(([category, items]) => (
+      <div class="mb-8">
+        <h3 class="font-medium text-neutral-light mb-2">{category}</h3>
+        <ul class="space-y-2">
+          {items.map(item => (
+            <li>
+              <a
+                href={`/examples/${item.id}`}
+                class={`block px-2 py-1 rounded-md text-sm transition ${
+                  currentExample === item.id
+                    ? 'bg-primary-lighter text-primary'
+                    : 'text-neutral-light hover:text-primary'
+                }`}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>

@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import TableOfContents from '../../components/docs/TableOfContents.astro';
+
+const headings = [
+  { depth: 2, slug: 'installation', text: 'Installation' },
+  { depth: 2, slug: 'quick-start', text: 'Quick Start' },
+  { depth: 2, slug: 'configuration', text: 'Configuration' },
+];
+---
+
+<Layout title="Documentation - RubyScript">
+  <div class="flex min-h-screen pt-16">
+    <DocsSidebar currentPath="/documentation" />
+    <main class="flex-1 px-4 py-8 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h1 class="text-4xl font-light text-neutral mb-8">Documentation</h1>
+        <div class="prose prose-neutral max-w-none">
+          <h2 id="installation">Installation</h2>
+          <p>Get started with RubyScript by installing it via npm or yarn:</p>
+          <pre><code>npm install -g rubyscript</code></pre>
+          
+          <h2 id="quick-start">Quick Start</h2>
+          <p>Create your first RubyScript project:</p>
+          <pre><code>rubyscript new my-project
+cd my-project
+rubyscript serve</code></pre>
+          
+          <h2 id="configuration">Configuration</h2>
+          <p>Configure RubyScript by creating a <code>rubyscript.config.rb</code> file:</p>
+          <pre><code>RubyScript.configure do |config|
+  config.strict_mode = true
+  config.target = :es2022
+end</code></pre>
+        </div>
+      </div>
+    </main>
+    <TableOfContents headings={headings} />
+  </div>
+</Layout>

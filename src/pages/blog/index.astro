@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+
+// Get all the posts (you can adjust the path if needed)
+const posts = await Astro.glob('./items/*.{md,mdx}');
+
+// Sample function to calculate Most Liked and Most Viewed posts
+const sortedPosts = (posts, sortBy) => {
+  return posts.sort((a, b) => b.frontmatter[sortBy] - a.frontmatter[sortBy]);
+};
+---
+
+<Layout title="Blog - StayingInnovative">
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-4xl font-bold">StayingInnovative Blog</h1>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex space-x-4">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/about" class="hover:underline">About Us</a></li>
+          <li><a href="/contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-gray-100 py-3 px-4">
+    <div class="container mx-auto">
+      <a href="/" class="text-blue-500 hover:underline">Home</a>
+      <span class="mx-2">/</span>
+      <span>Blog</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Blog Posts Section -->
+    <main class="md:col-span-3">
+      <!-- Most Liked Posts Section -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Most Liked Posts</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedPosts(posts, 'likes').slice(0, 3).map(post => (
+            <article class="bg-white rounded-lg shadow-md overflow-hidden">
+              <a href={post.url}>
+                <img src={post.frontmatter.image} alt="" class="w-full h-48 object-cover" />
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">{post.frontmatter.title}</h3>
+                  <p class="text-gray-600 mb-4">{post.frontmatter.excerpt}</p>
+                  <div class="flex justify-between text-sm text-gray-500">
+                    <span>Likes: {post.frontmatter.likes}</span>
+                    <span>Views: {post.frontmatter.views}</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Most Viewed Posts Section -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Most Viewed Posts</h2>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedPosts(posts, 'views').slice(0, 3).map(post => (
+            <article class="bg-white rounded-lg shadow-md overflow-hidden">
+              <a href={post.url}>
+                <img src={post.frontmatter.image} alt="" class="w-full h-48 object-cover" />
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">{post.frontmatter.title}</h3>
+                  <p class="text-gray-600 mb-4">{post.frontmatter.excerpt}</p>
+                  <div class="flex justify-between text-sm text-gray-500">
+                    <span>Likes: {post.frontmatter.likes}</span>
+                    <span>Views: {post.frontmatter.views}</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Latest Posts Section -->
+      <h2 class="text-3xl font-bold mb-6">Latest Posts</h2>
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map(post => (
+          <article class="bg-white rounded-lg shadow-md overflow-hidden">
+            <a href={post.url}>
+              <img src={post.frontmatter.image} alt="" class="w-full h-48 object-cover" />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">{post.frontmatter.title}</h3>
+                <p class="text-gray-600 mb-4">{post.frontmatter.excerpt}</p>
+                <div class="flex justify-between items-center text-sm text-gray-500">
+                  <time datetime={post.frontmatter.date} class="mr-4">
+                    Uploaded: {new Date(post.frontmatter.date).toLocaleDateString()}
+                  </time>
+                  <span>Author: {post.frontmatter.author}</span>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500 mt-4">
+                  <span>Likes: {post.frontmatter.likes}</span>
+                  <span>Views: {post.frontmatter.views}</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </main>
+
+    <!-- Sidebar Section -->
+    <aside class="bg-gray-50 p-6 rounded-lg shadow-md sticky top-4">
+      <h2 class="text-2xl font-bold mb-4">Author Info</h2>
+      <p class="text-gray-600">This blog is brought to you by the StayingInnovative team.</p>
+      <div class="mt-6">
+        <h3 class="text-lg font-bold">Details:</h3>
+        <ul class="list-disc list-inside text-gray-600 mt-2">
+          <li>Author: John Doe</li>
+          <li>Company: StayingInnovative Inc.</li>
+          <li>Last Commit: 2024-12-06</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <Footer />
+</Layout>

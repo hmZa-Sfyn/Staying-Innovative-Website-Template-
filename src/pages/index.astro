@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import LanguageCard from '../components/LanguageCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const languages = [
+  {
+    name: "RubyScript",
+    description: "A modern scripting language combining Ruby's elegance with enhanced performance",
+    features: ["Dynamic typing", "Functional programming", "Native async support"],
+    color: "bg-red-500"
+  },
+  {
+    name: "NueLang",
+    description: "Next-generation programming language for building scalable applications",
+    features: ["Strong type system", "Memory safety", "Cross-platform"],
+    color: "bg-blue-500"
+  }
+];
+
+const projects = [
+  {
+    title: "Blockchain Editor/Viewer",
+    description: "Comprehensive tool for managing and deploying blockchains with visual interface",
+    image: "/blockchain-editor.jpg",
+    link: "#"
+  },
+  {
+    title: "cDB",
+    description: "Custom database solution with advanced querying capabilities",
+    image: "/cdb.jpg",
+    link: "#"
+  }
+];
+---
+
+<Layout title="Programming Languages & Projects Showcase">
+  <Hero />
+  
+  <section id="languages" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Programming Languages</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {languages.map(lang => (
+          <LanguageCard {...lang} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

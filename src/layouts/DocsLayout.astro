@@ -1,0 +1,15 @@
+---
+import Layout from './Layout.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+const { title, currentPath } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="container mx-auto px-4 flex">
+    <Sidebar currentPath={currentPath} />
+    <main class="flex-1 py-8 px-6">
+      <slot />
+    </main>
+  </div>
+</Layout>

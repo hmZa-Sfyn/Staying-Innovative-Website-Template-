@@ -1,0 +1,46 @@
+---
+const currentPath = Astro.url.pathname;
+---
+<header class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <nav class="flex justify-between items-center h-16">
+      <a href="/" class="text-2xl font-light text-neutral">
+        Ruby<span class="text-primary">Script</span>
+      </a>
+      <ul class="flex space-x-8 text-sm font-light">
+        <li>
+          <a href="/features" 
+             class={`hover:text-primary transition ${currentPath === '/features' ? 'text-primary' : 'text-neutral-light'}`}>
+            Features
+          </a>
+        </li>
+        <li>
+          <a href="/examples" 
+             class={`hover:text-primary transition ${currentPath === '/examples' ? 'text-primary' : 'text-neutral-light'}`}>
+            Examples
+          </a>
+        </li>
+        <li>
+          <a href="/documentation" 
+             class={`hover:text-primary transition ${currentPath === '/documentation' ? 'text-primary' : 'text-neutral-light'}`}>
+            Documentation
+          </a>
+        </li>
+        <li>
+          <a href="/community" 
+             class={`hover:text-primary transition ${currentPath === '/community' ? 'text-primary' : 'text-neutral-light'}`}>
+            Community
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/rubyscript" 
+             class="hover:text-primary transition text-neutral-light"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

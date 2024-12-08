@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/date';
+
+const posts = await getCollection('blog');
+const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+---
+
+<aside class="hidden lg:block w-64 border-r border-gray-200 px-4 py-8">
+  <div class="mb-8">
+    <h3 class="font-medium text-neutral-light mb-4">Recent Posts</h3>
+    <ul class="space-y-4">
+      {posts.slice(0, 5).map(post => (
+        <li>
+          <a
+            href={`/blog/${post.slug}`}
+            class="block text-sm text-neutral-light hover:text-primary transition"
+          >
+            <span class="block font-medium">{post.data.title}</span>
+            <time class="text-xs">{formatDate(post.data.date)}</time>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div>
+    <h3 class="font-medium text-neutral-light mb-4">Tags</h3>
+    <div class="flex flex-wrap gap-2">
+      {tags.map(tag => (
+        <a
+          href={`/blog/tag/${tag}`}
+          class="px-2 py-1 bg-primary-lighter text-primary rounded-md text-sm hover:bg-primary hover:text-white transition"
+        >
+          {tag}
+        </a>
+      ))}
+    </div>
+  </div>
+</aside>

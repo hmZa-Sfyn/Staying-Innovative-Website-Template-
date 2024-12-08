@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    title: "Type Safety",
+    description: "Write safer code with static type checking while maintaining Ruby's elegant syntax",
+    icon: "🎯"
+  },
+  {
+    title: "Performance",
+    description: "Optimized compilation for blazing fast execution",
+    icon: "⚡"
+  },
+  {
+    title: "Compatibility",
+    description: "Seamless integration with existing Ruby gems and libraries",
+    icon: "💎"
+  },
+  {
+    title: "Modern Tooling",
+    description: "Built-in package manager, formatter, and debugging tools",
+    icon: "🛠️"
+  }
+];
+---
+
+<Layout title="Features - RubyScript">
+  <main class="pt-24">
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-light text-neutral mb-16 text-center">Features</h1>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {features.map(feature => (
+            <div class="p-8 rounded-xl bg-white hover:bg-primary-lighter transition-colors group">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-light mb-3 group-hover:text-primary">
+                {feature.title}
+              </h3>
+              <p class="text-neutral-light font-light">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

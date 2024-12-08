@@ -1,0 +1,32 @@
+---
+import { sidebarItems } from '../data/sidebar';
+
+const { currentPath } = Astro.props;
+---
+
+<aside class="w-64 border-r min-h-screen p-6">
+  <nav>
+    {sidebarItems.map(section => (
+      <div class="mb-8">
+        <h3 class="font-semibold text-gray-900 mb-3">{section.section}</h3>
+        <ul class="space-y-2">
+          {section.items.map(item => (
+            <li>
+              <a
+                href={item.href}
+                class:list={[
+                  'block py-1 px-2 rounded-lg text-sm',
+                  currentPath === item.href
+                    ? 'bg-purple-100 text-purple-700'
+                    : 'text-gray-600 hover:bg-gray-100'
+                ]}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>

@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ExamplesSidebar from '../../components/examples/ExamplesSidebar.astro';
+import CodeExample from '../../components/CodeExample.astro';
+
+const currentExample = "basic-types";
+---
+
+<Layout title="Examples - RubyScript">
+  <div class="flex min-h-screen pt-16">
+    <ExamplesSidebar currentExample={currentExample} />
+    <main class="flex-1 px-4 py-8 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <h1 class="text-4xl font-light text-neutral mb-8">Basic Types</h1>
+        <div class="prose prose-neutral max-w-none mb-8">
+          <p>Learn how to use RubyScript's type system with these basic examples.</p>
+        </div>
+        <div class="space-y-8">
+          <CodeExample 
+            title="Type Annotations" 
+            code={`# Basic type annotations
+name: String = "Alice"
+age: Integer = 30
+active: Boolean = true
+
+# Type inference
+inferred_string = "This is also a String"
+inferred_number = 42`} 
+          />
+          
+          <CodeExample 
+            title="Arrays and Hashes" 
+            code={`# Typed arrays
+numbers: Array[Integer] = [1, 2, 3]
+names: Array[String] = ["Alice", "Bob"]
+
+# Typed hashes
+user: Hash[Symbol, String] = {
+  name: "Alice",
+  email: "alice@example.com"
+}`} 
+          />
+        </div>
+      </div>
+    </main>
+  </div>
+</Layout>

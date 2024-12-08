@@ -1,0 +1,75 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Footer from '../../../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - StayingInnovative">
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-teal-500 to-green-600 text-white py-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-4xl font-bold">Privacy Policy</h1>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex space-x-4">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/blog" class="hover:underline">Blog</a></li>
+          <li><a href="/contact" class="hover:underline">Contact</a></li>
+        </ul>
+        <ul class="flex space-x-4">
+          <li><a href="/security" class="hover:underline">Security</a></li>
+          <li><a href="/security/privacy" class="hover:underline">Privacy Policy</a></li>
+          <li><a href="/security/terms" class="hover:underline">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-gray-100 py-3 px-4">
+    <div class="container mx-auto">
+      <a href="/" class="text-blue-500 hover:underline">Home</a>
+      <span class="mx-2">/</span>
+      <a href="/security" class="text-blue-500 hover:underline">Security</a>
+      <span class="mx-2">/</span>
+      <span>Privacy Policy</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Privacy Policy Section -->
+      <section class="md:col-span-2">
+        <h2 class="text-3xl font-bold mb-6">Your Privacy Matters to Us</h2>
+        <p class="text-gray-600 leading-loose mb-6">
+          At StayingInnovative, we are committed to protecting your privacy. This privacy policy outlines how we collect, use, and safeguard your personal information when you interact with our website and services.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-6">Information We Collect</h3>
+        <p class="text-gray-600 leading-loose mb-6">
+          We may collect personal information such as your name, email address, and any other details necessary for providing our services. We also gather non-personally identifiable information, such as your IP address and browsing data, to enhance your experience on our platform.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-6">How We Use Your Information</h3>
+        <p class="text-gray-600 leading-loose mb-6">
+          The information we collect is used solely for the purpose of improving our services, providing support, and keeping you updated on our offerings. We do not share or sell your personal data to third parties.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-6">Data Security</h3>
+        <p class="text-gray-600 leading-loose mb-6">
+          We implement industry-standard security measures to protect your personal information. Despite our best efforts, no method of electronic transmission is completely secure. However, we continue to monitor and improve our security practices.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-6">Your Rights</h3>
+        <p class="text-gray-600 leading-loose mb-6">
+          You have the right to access, correct, or delete your personal data at any time. If you wish to exercise any of these rights, please contact us at info@stayinginnovative.com.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-6">Changes to This Privacy Policy</h3>
+        <p class="text-gray-600 leading-loose">
+          We may update this privacy policy from time to time to reflect changes in our practices or legal obligations. We will notify you of any significant changes by posting the updated policy on this page.
+        </p>
+      </section>
+    </div>
+  </div>
+
+</Layout>

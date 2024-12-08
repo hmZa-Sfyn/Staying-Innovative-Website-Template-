@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Community - StayingInnovative">
+  <div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">Community</h1>
+    
+    <div class="grid gap-8 md:grid-cols-2">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-4">Share Your Projects</h2>
+        <p class="text-gray-600 mb-4">
+          Showcase your projects, get feedback, and connect with other developers.
+        </p>
+        <a href="/community/showcase" class="text-purple-600 hover:text-purple-700">
+          View Showcase →
+        </a>
+      </div>
+      
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-4">Discussion Forums</h2>
+        <p class="text-gray-600 mb-4">
+          Join the conversation, ask questions, and share your knowledge.
+        </p>
+        <a href="/community/forums" class="text-purple-600 hover:text-purple-700">
+          Browse Forums →
+        </a>
+      </div>
+    </div>
+    
+    <div class="mt-12">
+      <h2 class="text-2xl font-bold mb-6">Latest Discussions</h2>
+      <div class="space-y-4">
+        {/* Add forum posts here */}
+      </div>
+    </div>
+  </div>
+</Layout>

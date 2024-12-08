@@ -1,0 +1,42 @@
+---
+const features = [
+  {
+    title: "Static Typing",
+    description: "Get compile-time type checking while maintaining Ruby's elegant syntax",
+    icon: "🎯"
+  },
+  {
+    title: "Performance",
+    description: "Blazing fast execution with optimized compilation",
+    icon: "⚡"
+  },
+  {
+    title: "Ruby Compatible",
+    description: "Use existing Ruby gems and libraries seamlessly",
+    icon: "💎"
+  },
+  {
+    title: "Modern Tooling",
+    description: "Built-in package manager, formatter, and debugging tools",
+    icon: "🛠️"
+  }
+];
+---
+<section id="features" class="py-24 bg-gradient-to-b from-white to-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">
+      <span class="gradient-text">Features</span>
+    </h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {features.map(feature => (
+        <div class="p-8 rounded-xl bg-white shadow-lg hover:shadow-xl transition group">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition">
+            {feature.title}
+          </h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

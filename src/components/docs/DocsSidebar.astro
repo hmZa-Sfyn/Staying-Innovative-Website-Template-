@@ -1,0 +1,56 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const categories = {
+  'Getting Started': [
+    { path: '/docs', title: 'Introduction' },
+    { path: '/docs/installation', title: 'Installation' },
+    { path: '/docs/quick-start', title: 'Quick Start' },
+  ],
+  'Core Concepts': [
+    { path: '/docs/type-system', title: 'Type System' },
+    { path: '/docs/classes', title: 'Classes' },
+    { path: '/docs/modules', title: 'Modules' },
+  ],
+  'Advanced Topics': [
+    { path: '/docs/generics', title: 'Generics' },
+    { path: '/docs/pattern-matching', title: 'Pattern Matching' },
+    { path: '/docs/metaprogramming', title: 'Metaprogramming' },
+  ],
+  'API Reference': [
+    { path: '/docs/api/core', title: 'Core API' },
+    { path: '/docs/api/stdlib', title: 'Standard Library' },
+    { path: '/docs/api/tools', title: 'Tools' },
+  ],
+};
+---
+
+<aside class="hidden lg:block w-64 border-r border-gray-200 px-4 py-8 overflow-y-auto">
+  <nav>
+    {Object.entries(categories).map(([category, items]) => (
+      <div class="mb-8">
+        <h3 class="font-medium text-neutral-light mb-2">{category}</h3>
+        <ul class="space-y-2">
+          {items.map(item => (
+            <li>
+              <a
+                href={item.path}
+                class={`block px-2 py-1 rounded-md text-sm transition ${
+                  currentPath === item.path
+                    ? 'bg-primary-lighter text-primary'
+                    : 'text-neutral-light hover:text-primary'
+                }`}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+</aside>

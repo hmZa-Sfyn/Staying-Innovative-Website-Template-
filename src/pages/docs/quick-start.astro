@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import TableOfContents from '../../components/docs/TableOfContents.astro';
+
+const headings = [
+  { depth: 2, slug: 'qsg', text: 'Quick Start Guide' },
+  { depth: 2, slug: '2a', text: 'Create Your First File' },
+  { depth: 2, slug: '3a', text: 'Run Your Program' },
+  { depth: 2, slug: '4a', text: 'Explore More' },
+];
+---
+
+<Layout title="Documentation - RubyScript">
+  <div class="flex min-h-screen pt-16">
+    <DocsSidebar currentPath="/documentation" />
+    <main class="flex-1 px-4 py-8 lg:px-8">
+        <section class="container mx-auto p-8">
+            <h1 class="text-4xl font-bold mb-6" id="qsg">Quick Start Guide</h1>
+            <p class="text-xl mb-4">Get up and running with My Awesome Language in no time by following these simple steps!</p>
+        
+            <h2 class="text-3xl font-semibold mt-12 mb-4" id="2a">Step 1: Create Your First File</h2>
+            <p class="text-lg text-gray-700 mb-6">
+              Create a new file called <code class="text-gray-800 bg-gray-100 p-1 rounded">hello.awesome</code> and add the following code:
+            </p>
+            <pre class="bg-gray-800 text-white p-4 rounded-lg mt-2">
+              println("Hello, World!");
+            </pre>
+        
+            <h2 class="text-3xl font-semibold mt-12 mb-4" id="3a">Step 2: Run Your Program</h2>
+            <p class="text-lg text-gray-700 mb-6">
+              Open your terminal, navigate to the folder where your <code>hello.awesome</code> file is located, and run:
+              <pre class="bg-gray-800 text-white p-4 rounded-lg mt-2">awesome-lang hello.awesome</pre>
+              You should see the output:
+              <pre class="bg-gray-800 text-white p-4 rounded-lg mt-2">Hello, World!</pre>
+            </p>
+        
+            <h2 class="text-3xl font-semibold mt-12 mb-4" id="4a">Step 3: Explore More</h2>
+            <p class="text-lg text-gray-700 mb-6">
+              Congratulations! You've just written your first program. Now, you can explore more tutorials and start building real applications with My Awesome Language.
+            </p>
+          </section>
+    </main>
+    <TableOfContents headings={headings} />
+  </div>
+</Layout>

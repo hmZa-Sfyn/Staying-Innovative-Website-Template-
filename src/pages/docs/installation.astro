@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DocsSidebar from '../../components/docs/DocsSidebar.astro';
+import TableOfContents from '../../components/docs/TableOfContents.astro';
+
+const headings = [
+  { depth: 2, slug: 'installation', text: 'Installation' },
+  { depth: 2, slug: 'quick-start', text: 'Quick Start' },
+  { depth: 2, slug: 'configuration', text: 'Configuration' },
+];
+---
+
+<Layout title="Documentation - RubyScript">
+  <div class="flex min-h-screen pt-16">
+    <DocsSidebar currentPath="/documentation" />
+    <main class="flex-1 px-4 py-8 lg:px-8">
+      <section class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold mb-6">Installing My Awesome Language</h1>
+        <p class="text-xl mb-4">Follow the steps below to install My Awesome Language on your system.</p>
+    
+        <h2 class="text-3xl font-semibold mt-12 mb-4">Step 1: Download the Installer</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          First, download the installer for your operating system from our <a href="https://example.com/download" class="text-blue-500 hover:underline">official download page</a>.
+        </p>
+    
+        <h2 class="text-3xl font-semibold mt-12 mb-4">Step 2: Run the Installer</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          Once the installer is downloaded, run the executable and follow the on-screen instructions.
+        </p>
+    
+        <h2 class="text-3xl font-semibold mt-12 mb-4">Step 3: Verify the Installation</h2>
+        <p class="text-lg text-gray-700 mb-6">
+          After the installation is complete, open your terminal and type:
+          <pre class="bg-gray-800 text-white p-4 rounded-lg mt-2">awesome-lang --version</pre>
+          If the installation was successful, you should see the version number of My Awesome Language.
+        </p>
+      </section>
+    </main>
+    <TableOfContents headings={headings} />
+  </div>
+</Layout>

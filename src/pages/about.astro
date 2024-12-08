@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us - StayingInnovative">
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-teal-500 to-green-600 text-white py-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+      <h1 class="text-4xl font-bold">About StayingInnovative</h1>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex space-x-4">
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/blog" class="hover:underline">Blog</a></li>
+          <li><a href="/contact" class="hover:underline">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <nav class="bg-gray-100 py-3 px-4">
+    <div class="container mx-auto">
+      <a href="/" class="text-blue-500 hover:underline">Home</a>
+      <span class="mx-2">/</span>
+      <span>About Us</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About Section -->
+      <section class="md:col-span-2">
+        <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+        <p class="text-gray-600 leading-loose mb-6">
+          StayingInnovative is dedicated to providing insightful and innovative content for professionals and enthusiasts across industries. Our mission is to inspire, inform, and empower our audience with cutting-edge ideas and strategies.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6">About the Team</h2>
+        <p class="text-gray-600 leading-loose mb-6">
+          Founded by John Doe, a tech enthusiast and serial innovator, our team consists of passionate writers, developers, and designers committed to delivering excellence. StayingInnovative Inc. believes in fostering creativity and staying ahead in a rapidly evolving world.
+        </p>
+
+        <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+        <p class="text-gray-600 leading-loose">
+          What began as a small blog has grown into a thriving platform for thought leadership and collaboration. We are proud to have touched the lives of thousands of readers worldwide, and our journey is just beginning.
+        </p>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="bg-gray-50 p-6 rounded-lg shadow-md sticky top-4">
+        <h2 class="text-2xl font-bold mb-4">Quick Info</h2>
+        <ul class="list-disc list-inside text-gray-600">
+          <li>Founder: John Doe</li>
+          <li>Established: 2020</li>
+          <li>Headquarters: New York, USA</li>
+          <li>Contact: info@stayinginnovative.com</li>
+        </ul>
+
+        <h3 class="text-lg font-bold mt-6 mb-4">Why Choose Us?</h3>
+        <p class="text-gray-600">
+          StayingInnovative is your trusted source for actionable insights and groundbreaking ideas, crafted with care and backed by research.
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <Footer>
+
+</Layout>
